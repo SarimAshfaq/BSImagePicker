@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DAD10AE29431C440006E1CB /* AssetSelectionManageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAD10AD29431C440006E1CB /* AssetSelectionManageCell.swift */; };
 		531D8C532249C81A00281681 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D8C522249C81A00281681 /* SettingsTests.swift */; };
 		53FEDA162247FEB80098E34A /* CGSize+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FEDA152247FEB80098E34A /* CGSize+Scale.swift */; };
 		53FEDA18224805BA0098E34A /* CGSizeExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FEDA17224805BA0098E34A /* CGSizeExtensionTests.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0DAD10AD29431C440006E1CB /* AssetSelectionManageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSelectionManageCell.swift; sourceTree = "<group>"; };
 		531D8C522249C81A00281681 /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		53FEDA152247FEB80098E34A /* CGSize+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Scale.swift"; sourceTree = "<group>"; };
 		53FEDA17224805BA0098E34A /* CGSizeExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensionTests.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				555472AD21E538B000B90CA5 /* AssetsViewController.swift */,
 				55BCF8BD21D52C1000386752 /* AssetsCollectionViewDataSource.swift */,
 				55BCF8C121D52C1000386752 /* AssetCollectionViewCell.swift */,
+				0DAD10AD29431C440006E1CB /* AssetSelectionManageCell.swift */,
 				55F67B76222EEB2500805134 /* VideoCollectionViewCell.swift */,
 				C2DC13CB23F75BE40035FD13 /* SelectionView.swift */,
 				55BCF8C321D52C1000386752 /* CheckmarkView.swift */,
@@ -490,6 +493,7 @@
 				55BCF8CF21D52C1000386752 /* Settings.swift in Sources */,
 				55CDB45D2234523C0050D572 /* PreviewTitleBuilder.swift in Sources */,
 				55BCF8DF21D52C1000386752 /* AlbumsViewController.swift in Sources */,
+				0DAD10AE29431C440006E1CB /* AssetSelectionManageCell.swift in Sources */,
 				55BCF8D921D52C1000386752 /* CameraCollectionViewCell.swift in Sources */,
 				55F67B7B222F088500805134 /* GradientView.swift in Sources */,
 				55C5B804222C15D5003CF3F1 /* DropdownAnimator.swift in Sources */,

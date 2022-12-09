@@ -23,7 +23,7 @@
 import UIKit
 import Photos
 
-protocol AssetsViewControllerDelegate: class {
+protocol AssetsViewControllerDelegate: AnyObject {
     func assetsViewController(_ assetsViewController: AssetsViewController, didSelectAsset asset: PHAsset)
     func assetsViewController(_ assetsViewController: AssetsViewController, didDeselectAsset asset: PHAsset)
     func assetsViewController(_ assetsViewController: AssetsViewController, didLongPressCell cell: AssetCollectionViewCell, displayingAsset asset: PHAsset)
@@ -171,7 +171,7 @@ class AssetsViewController: UIViewController {
     }
 }
 
-extension AssetsViewController: UICollectionViewDelegate {
+extension AssetsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectionFeedback.selectionChanged()
 
@@ -199,6 +199,18 @@ extension AssetsViewController: UICollectionViewDelegate {
         selectionFeedback.prepare()
 
         return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.section == 0 {
+            return CGSize(width: collectionView.frame.width, height: 44)
+        } else {
+            let itemSpacing = settings.list.spacing
+            let itemsPerRow = settings.list.cellsPerRow(traitCollection.verticalSizeClass, traitCollection.horizontalSizeClass)
+            let itemWidth = (collectionView.bounds.width - CGFloat(itemsPerRow - 1) * itemSpacing) / CGFloat(itemsPerRow)
+            let itemSize = CGSize(width: itemWidth, height: itemWidth)
+            return itemSize
+        }
     }
 }
 

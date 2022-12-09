@@ -23,9 +23,10 @@
 import UIKit
 import Photos
 
-class AssetsCollectionViewDataSource : NSObject, UICollectionViewDataSource {
+class AssetsCollectionViewDataSource : NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     private static let assetCellIdentifier = "AssetCell"
     private static let videoCellIdentifier = "VideoCell"
+    private static let manageSelectionCellIdentifier = "AssetSelectionManageCell"
     
     var settings: Settings!
     var fetchResult: PHFetchResult<PHAsset> {
@@ -54,14 +55,18 @@ class AssetsCollectionViewDataSource : NSObject, UICollectionViewDataSource {
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchResult.count
+        return section == 0 ? 1:fetchResult.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AssetsCollectionViewDataSource.manageSelectionCellIdentifier, for: indexPath) as! AssetSelectionManageCell
+            return cell
+        }
         let asset = fetchResult[indexPath.row]
         let animationsWasEnabled = UIView.areAnimationsEnabled
         let cell: AssetCollectionViewCell
@@ -91,6 +96,7 @@ class AssetsCollectionViewDataSource : NSObject, UICollectionViewDataSource {
     static func registerCellIdentifiersForCollectionView(_ collectionView: UICollectionView?) {
         collectionView?.register(AssetCollectionViewCell.self, forCellWithReuseIdentifier: assetCellIdentifier)
         collectionView?.register(VideoCollectionViewCell.self, forCellWithReuseIdentifier: videoCellIdentifier)
+        collectionView?.register(AssetSelectionManageCell.self, forCellWithReuseIdentifier: manageSelectionCellIdentifier)
     }
     
     private func loadImage(for asset: PHAsset, in cell: AssetCollectionViewCell) {
